@@ -1,0 +1,30 @@
+---------------------------
+To launch the application
+---------------------------
+
+Open a terminal and in root directory of application run, start at localhost:8080
+
+$ mvn clean spring-boot:run
+
+-------------------------------------------------
+REST API and curl command  to test the application
+-------------------------------------------------
+
+* HTTP POST host/deliveryCorp/createOffer/ -> create an offer
+$ curl -X POST localhost:8080/deliveryCorp/createOffer -H 'Content-type:application/json' -d '{"name":"test", "state":"AVAILABLE","description":"little description","price":150,"currency":"£"}'
+
+
+* HTTP GET host/deliveryCorp/offer/{id} - > Get an offer by id
+$ curl -v localhost:8080/deliveryCorp/offer/1
+
+* HTTP GET host/deliveryCorp/offers - > Get all offers
+$ curl -v localhost:8080/deliveryCorp/offers
+
+* HTTP PUT host/deliveryCorp/cancelOffer/{id} -> Cancel an offer 
+$ curl -X PUT localhost:8080/deliveryCorp/cancelOffer/1
+
+-------------------
+Not implemented:
+-------------------
+
+-Offer expiration
